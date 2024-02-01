@@ -22,9 +22,7 @@ static int log_level = WLR_ERROR;
 
 static const Rule rules[] = {
 	/* app_id     title       tags mask     isfloating   monitor */
-	/* examples:
-	{ "Gimp",     NULL,       0,            1,           -1 },
-	*/
+	{ NULL,     NULL,       NULL,            0,           -1 },
 };
 
 /* layout(s) */
@@ -79,7 +77,7 @@ LIBINPUT_CONFIG_CLICK_METHOD_NONE
 LIBINPUT_CONFIG_CLICK_METHOD_BUTTON_AREAS
 LIBINPUT_CONFIG_CLICK_METHOD_CLICKFINGER
 */
-static const enum libinput_config_click_method click_method = LIBINPUT_CONFIG_CLICK_METHOD_BUTTON_CLICKFINGER;
+static const enum libinput_config_click_method click_method = LIBINPUT_CONFIG_CLICK_METHOD_CLICKFINGER;
 
 /* You can choose between:
 LIBINPUT_CONFIG_SEND_EVENTS_ENABLED
