@@ -25,7 +25,6 @@ static const Rule rules[] = {
 	/* examples:
 	{ "Gimp",     NULL,       0,            1,           -1 },
 	*/
-	{ "firefox",  NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -66,7 +65,7 @@ static const int drag_lock = 1;
 static const int natural_scrolling = 0;
 static const int disable_while_typing = 1;
 static const int left_handed = 0;
-static const int middle_button_emulation = 0;
+static const int middle_button_emulation = 1;
 /* You can choose between:
 LIBINPUT_CONFIG_SCROLL_NO_SCROLL
 LIBINPUT_CONFIG_SCROLL_2FG
@@ -80,7 +79,7 @@ LIBINPUT_CONFIG_CLICK_METHOD_NONE
 LIBINPUT_CONFIG_CLICK_METHOD_BUTTON_AREAS
 LIBINPUT_CONFIG_CLICK_METHOD_CLICKFINGER
 */
-static const enum libinput_config_click_method click_method = LIBINPUT_CONFIG_CLICK_METHOD_BUTTON_AREAS;
+static const enum libinput_config_click_method click_method = LIBINPUT_CONFIG_CLICK_METHOD_BUTTON_CLICKFINGER;
 
 /* You can choose between:
 LIBINPUT_CONFIG_SEND_EVENTS_ENABLED
@@ -115,12 +114,12 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 
 /* commands */
 static const char *termcmd[] = { "alacritty", NULL };
-static const char *menucmd[] = { "bemenu-run", NULL };
+static const char *menucmd[] = { "fuzzel", NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
 	/* modifier                  key                 function        argument */
-	{ MODKEY,                    XKB_KEY_p,          spawn,          {.v = menucmd} },
+	{ MODKEY,                    XKB_KEY_space,          spawn,          {.v = menucmd} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Return,     spawn,          {.v = termcmd} },
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
@@ -134,8 +133,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_t,          setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                    XKB_KEY_f,          setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                    XKB_KEY_m,          setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                    XKB_KEY_space,      setlayout,      {0} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_space,      togglefloating, {0} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_f,          togglefloating, {0} },
 	{ MODKEY,                    XKB_KEY_e,         togglefullscreen, {0} },
 	{ MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright, tag,            {.ui = ~0} },
