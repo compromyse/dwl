@@ -1,5 +1,6 @@
 { lib
 , stdenv
+, fetchFromGitHub
 , installShellFiles
 , libX11
 , libinput
@@ -7,16 +8,19 @@
 , libxkbcommon
 , pixman
 , pkg-config
+, substituteAll
 , wayland-scanner
 , wayland
 , wayland-protocols
-, wlroots_0_16
+, wlroots
+, writeText
 , xcbutilwm
 , xwayland
-, gnumake
+, enableXWayland ? true
+, conf ? null
 }:
 
-stdenv.mkDerivation ({
+stdenv.mkDerivation (finalAttrs: {
   pname = "dwl";
   version = "0.5";
 
@@ -25,7 +29,7 @@ stdenv.mkDerivation ({
   nativeBuildInputs = [
     installShellFiles
     pkg-config
-    gnumake
+    wayland-scanner
   ];
 
   buildInputs = [
@@ -35,14 +39,21 @@ stdenv.mkDerivation ({
     pixman
     wayland
     wayland-protocols
-    wlroots_0_16
+    wlroots
+  ] ++ lib.optionals enableXWayland [
     libX11
     xcbutilwm
     xwayland
-    wayland-scanner
   ];
 
   outputs = [ "out" "man" ];
+
+  # Allow users to set an alternative config.def.h
+  postPatch = let
+    configFile = if lib.isDerivation conf || builtins.isPath conf
+                 then conf
+                 else writeText "config.def.h" conf;
+  in lib.optionalString (conf != null) "cp ${configFile} config.def.h";
 
   makeFlags = [
     "PKG_CONFIG=${stdenv.cc.targetPrefix}pkg-config"
@@ -51,13 +62,15 @@ stdenv.mkDerivation ({
     "MANDIR=$(man)/share/man"
   ];
 
-  buildPhase = ''
-    make clean
-    make
+  preBuild = ''
+    makeFlagsArray+=(
+      XWAYLAND=${lib.optionalString enableXWayland "-DXWAYLAND"}
+      XLIBS=${lib.optionalString enableXWayland "xcb\\ xcb-icccm"}
+    )
   '';
 
   meta = {
-    homepage = "https://github.com/tomaskallup/dwl/";
+    homepage = "https://github.com/djpohly/dwl/";
     description = "Dynamic window manager for Wayland";
     longDescription = ''
       dwl is a compact, hackable compositor for Wayland based on wlroots. It is
@@ -70,6 +83,7 @@ stdenv.mkDerivation ({
       - Limited to 2000 SLOC to promote hackability
       - Tied to as few external dependencies as possible
     '';
+    changelog = "https://github.com/djpohly/dwl/releases/tag/v${finalAttrs.version}";
     license = lib.licenses.gpl3Only;
     maintainers = [ lib.maintainers.AndersonTorres ];
     inherit (wayland.meta) platforms;
