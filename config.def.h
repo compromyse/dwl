@@ -25,6 +25,7 @@ static int log_level = WLR_ERROR;
 static const char *const autostart[] = {
         "wbg", "/home/compromyse/Pictures/wallpaper.jpg", NULL,
         "way-displays", NULL,
+        "waybar", NULL,
         "dunst", NULL,
         NULL
 };
