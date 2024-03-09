@@ -44,14 +44,6 @@ dwl-ipc-unstable-v2-protocol.c:
 	$(WAYLAND_SCANNER) private-code \
 		protocols/dwl-ipc-unstable-v2.xml $@
 
-net-tapesoftware-dwl-wm-unstable-v1-protocol.h: protocols/net-tapesoftware-dwl-wm-unstable-v1.xml
-	$(WAYLAND_SCANNER) server-header \
-		protocols/net-tapesoftware-dwl-wm-unstable-v1.xml $@
-net-tapesoftware-dwl-wm-unstable-v1-protocol.c: protocols/net-tapesoftware-dwl-wm-unstable-v1.xml
-	$(WAYLAND_SCANNER) private-code \
-		protocols/net-tapesoftware-dwl-wm-unstable-v1.xml $@
-net-tapesoftware-dwl-wm-unstable-v1-protocol.o: net-tapesoftware-dwl-wm-unstable-v1-protocol.h
-
 config.h:
 	cp config.def.h $@
 clean:
