@@ -14,9 +14,9 @@ DWLCFLAGS = `$(PKG_CONFIG) --cflags $(PKGS)` $(DWLCPPFLAGS) $(DWLDEVCFLAGS) $(CF
 LDLIBS    = `$(PKG_CONFIG) --libs $(PKGS)` $(LIBS)
 
 all: dwl
-dwl: dwl.o util.o dwl-ipc-unstable-v2-protocol.o
-	$(CC) dwl.o util.o dwl-ipc-unstable-v2-protocol.o $(LDLIBS) $(LDFLAGS) $(DWLCFLAGS) -o $@
-dwl.o: dwl.c config.mk config.h client.h cursor-shape-v1-protocol.h xdg-shell-protocol.h wlr-layer-shell-unstable-v1-protocol.h dwl-ipc-unstable-v2-protocol.h
+dwl: dwl.o util.o net-tapesoftware-dwl-wm-unstable-v1-protocol.o
+	$(CC) dwl.o util.o net-tapesoftware-dwl-wm-unstable-v1-protocol.o $(LDLIBS) $(LDFLAGS) $(DWLCFLAGS) -o $@
+dwl.o: dwl.c config.mk config.h client.h xdg-shell-protocol.h wlr-layer-shell-unstable-v1-protocol.h net-tapesoftware-dwl-wm-unstable-v1-protocol.o
 
 util.o: util.c util.h
 
@@ -43,6 +43,14 @@ dwl-ipc-unstable-v2-protocol.h:
 dwl-ipc-unstable-v2-protocol.c:
 	$(WAYLAND_SCANNER) private-code \
 		protocols/dwl-ipc-unstable-v2.xml $@
+
+net-tapesoftware-dwl-wm-unstable-v1-protocol.h: protocols/net-tapesoftware-dwl-wm-unstable-v1.xml
+	$(WAYLAND_SCANNER) server-header \
+		protocols/net-tapesoftware-dwl-wm-unstable-v1.xml $@
+net-tapesoftware-dwl-wm-unstable-v1-protocol.c: protocols/net-tapesoftware-dwl-wm-unstable-v1.xml
+	$(WAYLAND_SCANNER) private-code \
+		protocols/net-tapesoftware-dwl-wm-unstable-v1.xml $@
+net-tapesoftware-dwl-wm-unstable-v1-protocol.o: net-tapesoftware-dwl-wm-unstable-v1-protocol.h
 
 config.h:
 	cp config.def.h $@
