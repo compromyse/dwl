@@ -134,7 +134,7 @@ static const char *upbrightness[] = { "brightnessctl", "set", "+5%", NULL };
 static const char *downbrightness[] = { "brightnessctl", "set", "5%-", NULL };
 
 static const char *termcmd[] = { "alacritty", NULL };
-static const char *menucmd[] = { "fuzzel", NULL };
+static const char *menucmd[] = { "bemenu-run", NULL };
 static const char *lockcmd[] = { "swaylock", NULL };
 
 static const Key keys[] = {
