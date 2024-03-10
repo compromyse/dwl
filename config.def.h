@@ -23,8 +23,8 @@ static int log_level = WLR_ERROR;
 /* Autostart */
 static const char *const autostart[] = {
         "wbg", "/home/compromyse/Pictures/wallpaper.jpg", NULL,
+        "/home/compromyse/.bar.sh", NULL,
         "way-displays", NULL,
-        "waybar", NULL,
         "dunst", NULL,
         "swayidle", "before-sleep", "swaylock", "lock", "swaylock", NULL,
         NULL
