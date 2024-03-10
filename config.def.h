@@ -23,8 +23,8 @@ static int log_level = WLR_ERROR;
 
 /* Autostart */
 static const char *const autostart[] = {
-        "wbg", "~/Pictures/wallpaper.jpg", NULL,
-        "~/.bar.sh", NULL,
+        "wbg", "/home/compromyse/Pictures/wallpaper.jpg", NULL,
+        "/home/compromyse/.bar.sh", NULL,
         "way-displays", NULL,
         "dunst", NULL,
         "swayidle", "before-sleep", "swaylock", "lock", "swaylock", NULL,
@@ -134,7 +134,7 @@ static const char *upbrightness[] = { "brightnessctl", "set", "+5%", NULL };
 static const char *downbrightness[] = { "brightnessctl", "set", "5%-", NULL };
 
 static const char *termcmd[] = { "alacritty", NULL };
-static const char *menucmd[] = { "~/.run.sh", NULL };
+static const char *menucmd[] = { "/home/compromyse/.run.sh", NULL };
 static const char *lockcmd[] = { "swaylock", NULL };
 
 static const Key keys[] = {
