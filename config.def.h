@@ -126,12 +126,12 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *upvol[] = { "pamixer -i 5", NULL };
-static const char *downvol[] = { "pamixer -d 5", NULL };
-static const char *mute[] = { "pamixer -t", NULL };
+static const char *upvol[] = { "pamixer", "-i", "5", NULL };
+static const char *downvol[] = { "pamixer", "-d", "5", NULL };
+static const char *mute[] = { "pamixer", "-t", NULL };
 
-static const char *upbrightness[] = { "brightnessctl set +5%", NULL };
-static const char *downbrightness[] = { "brightnessctl set 5%-", NULL };
+static const char *upbrightness[] = { "brightnessctl", "set", "+5%", NULL };
+static const char *downbrightness[] = { "brightnessctl", "set", "5%-", NULL };
 
 static const char *termcmd[] = { "alacritty", NULL };
 static const char *menucmd[] = { "fuzzel", NULL };
