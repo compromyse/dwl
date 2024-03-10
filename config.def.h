@@ -34,7 +34,7 @@ static const char *const autostart[] = {
 
 static const Rule rules[] = {
 	/* app_id     title       tags mask     isfloating   monitor */
-	{ "float",  "float",    NULL,            1,           -1 },
+	{ "float",  NULL,       NULL,            1,           -1 },
 	{ NULL,     NULL,       NULL,            0,           -1 },
 };
 
