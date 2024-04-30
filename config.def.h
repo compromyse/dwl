@@ -28,6 +28,7 @@ static const char *const autostart[] = {
         "way-displays", NULL,
         "dunst", NULL,
         "swayidle", "before-sleep", "swaylock", "lock", "swaylock", NULL,
+        "nm-applet", NULL,
         NULL
 };
 
