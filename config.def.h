@@ -50,8 +50,8 @@ static const Layout layouts[] = {
 /* monitors */
 /* NOTE: ALWAYS add a fallback rule, even if you are completely sure it won't be used */
 static const MonitorRule monrules[] = {
-	/* name       mfact nmaster scale layout       rotate/reflect              x  y  resx resy rate mode adaptive*/
-	{ NULL,       0.55f, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL, 0, 0, 0, 0, 0.0f, 0 ,1},
+	/* name       mfact  nmaster scale layout       rotate/reflect              x  y  resx resy rate   mode adaptive */
+	{  NULL,      0.55f, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL, 0, 0, 0,   0,   60.0f, 0,   0 },
 };
 
 /* keyboard */
