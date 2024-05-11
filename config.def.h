@@ -30,6 +30,7 @@ static const char *const autostart[] = {
         "swayidle", "before-sleep", "swaylock", "lock", "swaylock", NULL,
         "nm-applet", NULL,
         "blueman-applet", NULL,
+        "systemctl", "--user", "import-environment", "DISPLAY", "WAYLAND_DISPLAY", NULL,
         NULL
 };
 
