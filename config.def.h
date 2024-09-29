@@ -20,6 +20,20 @@ static const float fullscreen_bg[]         = {0.1f, 0.1f, 0.1f, 1.0f}; /* You ca
 /* logging */
 static int log_level = WLR_ERROR;
 
+/* Autostart */
+static const char *const autostart[] = {
+        "wbg", "/etc/nixos/dist/wallpaper.jpg", NULL,
+        "/etc/nixos/dist/bar.sh", NULL,
+        "way-displays", NULL,
+        "dunst", NULL,
+        "swayidle", "before-sleep", "swaylock", "lock", "swaylock", NULL,
+        "nm-applet", NULL,
+        "blueman-applet", NULL,
+        "systemctl", "--user", "import-environment", "DISPLAY", "WAYLAND_DISPLAY", NULL,
+        NULL
+};
+
+
 /* NOTE: ALWAYS keep a rule declared even if you don't use rules (e.g leave at least one example) */
 static const Rule rules[] = {
 	/* app_id             title       tags mask     isfloating   monitor */
