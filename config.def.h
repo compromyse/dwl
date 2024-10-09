@@ -138,6 +138,7 @@ static const char *downbrightness[] = { "brightnessctl", "set", "5%-", NULL };
 
 static const char *termcmd[] = { "alacritty", NULL };
 static const char *menucmd[] = { "/etc/nixos/dist/run.sh", NULL };
+static const char *filemanagercmd[] = { "pcmanfm", NULL };
 static const char *lockcmd[] = { "swaylock", NULL };
 
 static const Key keys[] = {
@@ -146,6 +147,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_space,      spawn,          {.v = menucmd} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Return,     spawn,          {.v = termcmd} },
 	{ MODKEY,                    XKB_KEY_x,          spawn,          {.v = lockcmd} },
+	{ MODKEY,                    XKB_KEY_e,          spawn,          {.v = filemanagercmd} },
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
 	{ MODKEY,                    XKB_KEY_i,          incnmaster,     {.i = +1} },
@@ -158,7 +160,6 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_t,          setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                    XKB_KEY_f,          setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_F,          togglefloating, {0} },
-	{ MODKEY,                    XKB_KEY_e,          togglefullscreen, {0} },
 	{ MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright, tag,            {.ui = ~0} },
 	{ MODKEY,                    XKB_KEY_comma,      focusmon,       {.i = WLR_DIRECTION_LEFT} },
