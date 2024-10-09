@@ -27,7 +27,6 @@ static int log_level = WLR_ERROR;
 
 /* Autostart */
 static const char *const autostart[] = {
-        "wbg", "/etc/nixos/dist/wallpaper.jpg", NULL,
         "/etc/nixos/dist/bar.sh", NULL,
         "way-displays", NULL,
         "dunst", NULL,
