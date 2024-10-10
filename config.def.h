@@ -27,7 +27,7 @@ static int log_level = WLR_ERROR;
 
 /* Autostart */
 static const char *const autostart[] = {
-        "/etc/nixos/dist/bar.sh", NULL,
+        "/config/dist/bar.sh", NULL,
         "way-displays", NULL,
         "dunst", NULL,
         "swayidle", "before-sleep", "swaylock", "lock", "swaylock", NULL,
@@ -136,7 +136,7 @@ static const char *upbrightness[] = { "brightnessctl", "set", "+5%", NULL };
 static const char *downbrightness[] = { "brightnessctl", "set", "5%-", NULL };
 
 static const char *termcmd[] = { "alacritty", NULL };
-static const char *menucmd[] = { "/etc/nixos/dist/run.sh", NULL };
+static const char *menucmd[] = { "/config/dist/run.sh", NULL };
 static const char *filemanagercmd[] = { "pcmanfm", NULL };
 static const char *lockcmd[] = { "swaylock", NULL };
 
