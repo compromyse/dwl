@@ -1619,21 +1619,10 @@ gpureset(struct wl_listener *listener, void *data)
 void
 handlesig(int signo)
 {
-	if (signo == SIGCHLD) {
-		while (waitpid(-1, NULL, WNOHANG) > 0) {
-			pid_t *p, *lim;
-			if (!(p = autostart_pids))
-				continue;
-			lim = &p[autostart_len];
-
-			for (; p < lim; p++) {
-				if (*p == in.si_pid) {
-					*p = -1;
-					break;
-				}
-			}
-		}
-	} else if (signo == SIGINT || signo == SIGTERM)
+	if (signo == SIGCHLD)
+		while (waitpid(-1, NULL, WNOHANG) > 0)
+      ;
+	else if (signo == SIGINT || signo == SIGTERM)
 		quit(NULL);
 }
 
