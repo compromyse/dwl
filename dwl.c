@@ -1622,8 +1622,6 @@ handlesig(int signo)
 	if (signo == SIGCHLD) {
 		while (waitpid(-1, NULL, WNOHANG) > 0) {
 			pid_t *p, *lim;
-			if (in.si_pid == child_pid)
-				child_pid = -1;
 			if (!(p = autostart_pids))
 				continue;
 			lim = &p[autostart_len];
