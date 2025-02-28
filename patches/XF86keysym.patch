@@ -26,7 +26,7 @@ index 089aa3795..29a6d624f 100644
 +static const char *downvol[] = { "amixer", "-q", "-c", "0", "set", "Master", "2-", NULL };
 +// for muting/unmuting //
 +static const char *mute[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
- static const char *termcmd[] = { "alacritty", NULL };
+ static const char *termcmd[] = { "kitty", NULL };
  static const char *menucmd[] = { "bemenu-run", NULL };
  
 @@ -107,6 +113,9 @@ static const Key keys[] = {
