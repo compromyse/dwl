@@ -135,7 +135,7 @@ static const char *mute[] = { "pamixer", "-t", NULL };
 static const char *upbrightness[] = { "brightnessctl", "set", "+5%", NULL };
 static const char *downbrightness[] = { "brightnessctl", "set", "5%-", NULL };
 
-static const char *termcmd[] = { "kitty", NULL };
+static const char *termcmd[] = { "alacritty", NULL };
 static const char *menucmd[] = { "/config/dist/run.sh", NULL };
 static const char *vmcmd[] = { "/config/dist/vm.sh", NULL };
 static const char *lgcmd[] = { "looking-glass-client", "-m", "97", NULL };
