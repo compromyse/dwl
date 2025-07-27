@@ -27,12 +27,11 @@ static int log_level = WLR_ERROR;
 
 /* Autostart */
 static const char *const autostart[] = {
-        "/config/dist/bar.sh", NULL,
+        // "/config/dist/bar.sh", NULL,
+        "waybar", NULL,
         "way-displays", NULL,
         "dunst", NULL,
         "swayidle", "before-sleep", "swaylock", "lock", "swaylock", NULL,
-        "nm-applet", NULL,
-        "blueman-applet", NULL,
         "systemctl", "--user", "import-environment", "DISPLAY", "WAYLAND_DISPLAY", NULL,
         NULL
 };
