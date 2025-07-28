@@ -153,6 +153,7 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Return,     spawn,          {.v = termcmd} },
 	{ MODKEY,                    XKB_KEY_x,          spawn,          {.v = lockcmd} },
 	{ MODKEY,                    XKB_KEY_e,          spawn,          {.v = filemanagercmd} },
+  { MODKEY,                    XKB_KEY_r,          regions,        SHCMD("grim -g \"$(slurp)\"") },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_s,          regions,        {.v = screenshotcmd} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_e,          spawn,          {.v = swappycmd} },
 	{ MODKEY,                    XKB_KEY_b,          togglebar,      {0} },
