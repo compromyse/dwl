@@ -140,6 +140,8 @@ static const char *vmcmd[] = { "/config/dist/vm.sh", NULL };
 static const char *lgcmd[] = { "looking-glass-client", "-m", "97", NULL };
 static const char *filemanagercmd[] = { "pcmanfm", NULL };
 static const char *lockcmd[] = { "swaylock", NULL };
+static const char screenshotcmd[] = "grim -g \"$(slurp)\" - | wl-copy";
+static const char swappycmd[] = "wl-paste | swappy -f -";
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -150,6 +152,8 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Return,     spawn,          {.v = termcmd} },
 	{ MODKEY,                    XKB_KEY_x,          spawn,          {.v = lockcmd} },
 	{ MODKEY,                    XKB_KEY_e,          spawn,          {.v = filemanagercmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_s,          spawn,          SHCMD(screenshotcmd) },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_e,          spawn,          SHCMD(swappycmd) },
 	{ MODKEY,                    XKB_KEY_b,          togglebar,      {0} },
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
