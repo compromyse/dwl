@@ -139,6 +139,7 @@ static const char *menucmd[] = { "/config/dist/run.sh", NULL };
 static const char *vmcmd[] = { "/config/dist/vm.sh", NULL };
 static const char *lgcmd[] = { "looking-glass-client", "-m", "97", NULL };
 static const char *filemanagercmd[] = { "pcmanfm", NULL };
+
 static const char *lockcmd[] = { "swaylock", NULL };
 static const char *screenshotcmd[] = { "sh", "-c", "grim -g \"$(slurp -d)\" - | wl-copy -t \"image/png\"", NULL };
 static const char *swappycmd[] = { "sh", "-c", "wl-paste | swappy -f -", NULL };
