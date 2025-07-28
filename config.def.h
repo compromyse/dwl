@@ -141,7 +141,6 @@ static const char *lgcmd[] = { "looking-glass-client", "-m", "97", NULL };
 static const char *filemanagercmd[] = { "pcmanfm", NULL };
 
 static const char *lockcmd[] = { "swaylock", NULL };
-static const char *screenshotcmd[] = { "sh", "-c", "grim -g \"$(slurp -d)\" - | wl-copy -t \"image/png\"", NULL };
 static const char *swappycmd[] = { "sh", "-c", "wl-paste | swappy -f -", NULL };
 
 static const Key keys[] = {
@@ -153,9 +152,8 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Return,     spawn,          {.v = termcmd} },
 	{ MODKEY,                    XKB_KEY_x,          spawn,          {.v = lockcmd} },
 	{ MODKEY,                    XKB_KEY_e,          spawn,          {.v = filemanagercmd} },
-  { MODKEY,                    XKB_KEY_r,          regions,        SHCMD("grim -g \"$(slurp)\"") },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_s,          regions,        {.v = screenshotcmd} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_e,          spawn,          {.v = swappycmd} },
+  { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_S,          regions,        SHCMD("grim -g \"$(slurp)\" | wl-copy -t \"image/png\"") },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_E,          spawn,          {.v = swappycmd} },
 	{ MODKEY,                    XKB_KEY_b,          togglebar,      {0} },
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
